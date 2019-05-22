@@ -1,6 +1,6 @@
 const packager = require('electron-packager')
 
-const platform = "darwin";
+const platform = "win32";
 const options = {
 	dir: '.',
 	icon: './scripts/favicon.ico',
@@ -15,7 +15,7 @@ const options = {
     mirror: 'https://github.com/castlabs/electron-releases/releases/download/v',
     cache: './.electron-dl-cache'
   },
-  ignore: /^\/src|^\/out|^\/config|^\/lib|^\/public|^\/scripts|\/(\.[^/]*|.*\.md|.*\.markdown)$/
+  ignore: /^\/src|^\/out|^\/config|^\/lib|^\/public|^\/scripts|^\/certs|\/(\.[^/]*|.*\.md|.*\.markdown)$/
 }
 packager(options)
 	.then(appPaths => {
@@ -35,7 +35,8 @@ packager(options)
         appDirectory: appPaths[0],
         outputDirectory: './out',
         authors: 'My Inc.',
-        exe: 'electron-react.exe'
+        exe: 'electron-react.exe',
+        signWithParams: `/a /f ./certs/electronp12.p12 /p changeit /tr http://timestamp.comodoca.com /td sha256`
       })
         .then(() => console.log("It worked!"), (e) => console.log(`No dice: ${e.message}`));
     }
