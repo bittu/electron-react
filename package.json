@@ -101,6 +101,7 @@
     "dotenv": "6.2.0",
     "dotenv-expand": "4.2.0",
     "electron": "https://github.com/castlabs/electron-releases.git#v4.2.2-wvvmp",
+    "electron-installer-dmg": "^2.0.0",
     "electron-packager": "^13.1.1",
     "electron-winstaller": "^3.0.4",
     "eslint": "^5.16.0",
