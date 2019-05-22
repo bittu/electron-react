@@ -188,4 +188,7 @@ function copyPublicFolder() {
     dereference: true,
     filter: file => file !== paths.appHtml,
   });
+  fs.copySync(paths.theoPlayer, path.join(paths.appBuild, 'lib', 'theoPlayer'), {
+    dereference: true
+  })
 }

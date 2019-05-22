@@ -4,12 +4,14 @@
 /node_modules
 /.pnp
 .pnp.js
+.electron-dl-cache
 
 # testing
 /coverage
 
 # production
 /build
+/out
 
 # misc
 .DS_Store
