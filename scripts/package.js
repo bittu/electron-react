@@ -7,8 +7,8 @@ const options = {
 	out: 'out',
 	overwrite: true,
 	appVersion: '1.0.0.0',
-	executableName: 'electron-react',
-  name: 'electron-react',
+	executableName: 'electronreact',
+  name: 'electronreact',
   asar: true,
   platform,
   download: {
@@ -24,7 +24,7 @@ packager(options)
       var createDMG = require('electron-installer-dmg')
       createDMG({
         appPath: `${appPaths[0]}/electron-react.app`,
-        name: "electron-react",
+        name: "electronreact",
         icon: './scripts/favicon.icns',
         overwrite: true,
         out: './out'
@@ -35,8 +35,9 @@ packager(options)
         appDirectory: appPaths[0],
         outputDirectory: './out',
         authors: 'My Inc.',
-        exe: 'electron-react.exe',
-        signWithParams: `/a /f ./certs/electronp12.p12 /p changeit /tr http://timestamp.comodoca.com /td sha256`
+        exe: 'electronreact.exe',
+        signWithParams: `/a /f ./certs/codesign.pfx /p changeit /tr http://timestamp.comodoca.com /td sha256`,
+		loadingGif: './scripts/transfer-gif.gif'
       })
         .then(() => console.log("It worked!"), (e) => console.log(`No dice: ${e.message}`));
     }
