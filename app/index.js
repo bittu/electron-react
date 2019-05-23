@@ -1,20 +1,28 @@
 const { app, BrowserWindow } = require('electron')
 const autoUpdater = require('./auto-updater')
 
+const platform = process.platform;
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({
+  let windowOpts = {
     width: 800,
     height: 600,
-    titleBarStyle: 'hidden',
     webPreferences: {
       nodeIntegration: true
     }
-  })
+  }
+  if (platform === "darwin") {
+    windowOpts.titleBarStyle = 'hidden'
+  } else if (platform === 'win32') {
+    windowOpts.frame = false;
+  }
+
+  win = new BrowserWindow(windowOpts)
 
   // and load the index.html of the app.
   // win.loadFile('./build/index.html')
