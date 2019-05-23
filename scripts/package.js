@@ -34,8 +34,10 @@ packager(options)
       electronInstaller.createWindowsInstaller({
         appDirectory: appPaths[0],
         outputDirectory: './out',
-        authors: 'My Inc.',
+        authors: 'British telecom Plc.',
         exe: 'electronreact.exe',
+		name: 'electronreact.exe',
+		title: 'electronreact.exe',
         signWithParams: `/a /f ./certs/codesign.pfx /p changeit /tr http://timestamp.comodoca.com /td sha256`,
 		loadingGif: './scripts/transfer-gif.gif'
       })
