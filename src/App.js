@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import StreamInfo from './StreamInfo';
 import PlayerContainer from './player/PlayerContainer';
+import UpdateChecker from './UpdateChecker';
 
 import './App.css';
 
@@ -38,6 +39,7 @@ class App extends Component {
 
     return (
       <div className="app">
+        <UpdateChecker />
         {launchPlayer
         ? <PlayerContainer
             streamURL={streamURL}

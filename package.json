@@ -6,6 +6,7 @@
   "description": "electron app with reactjs",
   "dependencies": {
     "classnames": "^2.2.6",
+    "electron-builder": "^20.40.2",
     "query-string": "^6.5.0",
     "rc-animate": "^2.8.2",
     "react": "^16.8.6",
@@ -18,6 +19,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "app": "electron .",
+    "prepackage": "yarn build",
     "package": "node scripts/package.js"
   },
   "eslintConfig": {
