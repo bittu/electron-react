@@ -39,7 +39,9 @@ class App extends Component {
 
     return (
       <div className="app">
-        <UpdateChecker />
+        <div style={{height: '300px', overflow: 'scroll'}}>
+          <UpdateChecker />
+        </div>
         {launchPlayer
         ? <PlayerContainer
             streamURL={streamURL}

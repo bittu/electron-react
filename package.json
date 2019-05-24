@@ -4,22 +4,32 @@
   "private": true,
   "homepage": "./",
   "description": "electron app with reactjs",
+  "author": "Sandeep Vemula",
   "dependencies": {
     "classnames": "^2.2.6",
+    "decompress-zip": "^0.2.2",
+    "download-file": "^0.1.5",
+    "extract-zip": "^1.6.7",
+    "follow-redirects": "^1.7.0",
+    "httpreq": "^0.4.24",
+    "lodash": "^4.17.11",
     "query-string": "^6.5.0",
     "rc-animate": "^2.8.2",
     "react": "^16.8.6",
     "react-app-polyfill": "^1.0.1",
     "react-dev-utils": "^9.0.1",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "request": "^2.88.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "app": "electron .",
-    "prepackage": "yarn build",
-    "package": "node scripts/package.js"
+    "package": "node scripts/package.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -102,6 +112,8 @@
     "dotenv": "6.2.0",
     "dotenv-expand": "4.2.0",
     "electron": "https://github.com/castlabs/electron-releases.git#v4.2.2-wvvmp",
+    "electron-builder": "^20.40.2",
+    "electron-builder-squirrel-windows": "^20.41.0",
     "electron-installer-dmg": "^2.0.0",
     "electron-packager": "^13.1.1",
     "electron-winstaller": "^3.0.4",
@@ -133,7 +145,7 @@
     "postcss-safe-parser": "4.0.1",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
-    "semver": "6.0.0",
+    "semver": "^6.0.0",
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "1.2.3",
     "ts-pnp": "1.1.2",
@@ -142,5 +154,37 @@
     "webpack-dev-server": "3.2.1",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "4.2.0"
+  },
+  "build": {
+    "appId": "com.bt.electronreact",
+    "productName": "electronreact",
+    "copyright": "Copyright © 2019 ${author}",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "index.js",
+      "app/",
+      "build/",
+      "node_modules/",
+      "package.json"
+    ],
+    "protocols": {
+      "name": "electronreact",
+      "schemes": [
+        "electronreact"
+      ]
+    },
+    "electronDownload": {
+      "cache": ".electron-dl-cache",
+      "mirror": "https://github.com/castlabs/electron-releases/releases/download/v"
+    },
+    "win": {
+      "target": "squirrel",
+      "icon": "scripts/favicon.png"
+    },
+    "squirrelWindows": {
+      "loadingGif": "scripts/transfer-gif.gif"
+    }
   }
 }

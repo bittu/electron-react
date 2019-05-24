@@ -34,6 +34,7 @@ function init(mainWindow) {
   })
 
   autoUpdater.once('update-available', (ev, err) => {
+    mainWindow.webContents.send('console', ev);
     mainWindow.webContents.send('message', { msg: '🎉 Update available. Downloading ⌛️', hide: false })
   })
 

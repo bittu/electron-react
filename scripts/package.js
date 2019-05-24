@@ -3,19 +3,18 @@ const packager = require('electron-packager')
 const platform = "win32";
 const options = {
 	dir: '.',
-	icon: './scripts/favicon.ico',
+	icon: './scripts/favicon.png',
 	out: 'out',
 	overwrite: true,
-	appVersion: '1.0.0.0',
 	executableName: 'electronreact',
   name: 'electronreact',
-  asar: true,
+  asar: false,
   platform,
   download: {
     mirror: 'https://github.com/castlabs/electron-releases/releases/download/v',
     cache: './.electron-dl-cache'
   },
-  ignore: /^\/src|^\/out|^\/config|^\/lib|^\/public|^\/scripts|^\/certs|\/(\.[^/]*|.*\.md|.*\.markdown)$/
+  ignore: /^\/src|^\/out|^\/dist|^\/config|^\/lib|^\/public|^\/scripts|^\/certs|\/(\.[^/]*|.*\.md|.*\.markdown)$/
 }
 packager(options)
 	.then(appPaths => {
@@ -36,10 +35,10 @@ packager(options)
         outputDirectory: './out',
         authors: 'British telecom Plc.',
         exe: 'electronreact.exe',
-		name: 'electronreact.exe',
-		title: 'electronreact.exe',
+        name: 'electronreact.exe',
+        title: 'electronreact.exe',
         signWithParams: `/a /f ./certs/codesign.pfx /p changeit /tr http://timestamp.comodoca.com /td sha256`,
-		loadingGif: './scripts/transfer-gif.gif'
+		    loadingGif: './scripts/transfer-gif.gif'
       })
         .then(() => console.log("It worked!"), (e) => console.log(`No dice: ${e.message}`));
     }
