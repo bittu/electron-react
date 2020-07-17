@@ -12,7 +12,7 @@
     "extract-zip": "^1.6.7",
     "follow-redirects": "^1.7.0",
     "httpreq": "^0.4.24",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "query-string": "^6.5.0",
     "rc-animate": "^2.8.2",
     "react": "^16.8.6",
