@@ -10,7 +10,7 @@
     "decompress-zip": "^0.2.2",
     "download-file": "^0.1.5",
     "extract-zip": "^1.6.7",
-    "follow-redirects": "^1.7.0",
+    "follow-redirects": "^1.14.7",
     "httpreq": "^0.4.24",
     "lodash": "^4.17.11",
     "query-string": "^6.5.0",
